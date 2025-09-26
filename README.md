@@ -145,11 +145,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📧 Contact
-
-- Project Link: [https://github.com/yourusername/skillswap](https://github.com/yourusername/skillswap)
-- Email: skillswap@example.com
-
 ---
 
 
