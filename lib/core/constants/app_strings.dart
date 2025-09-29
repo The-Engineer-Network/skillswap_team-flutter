@@ -9,7 +9,7 @@ class AppStrings {
   static const String fontFamily = 'Inter';
 
   // ONBOARDING SCREEN
-  static const String onboardingTitle = 'Teach what you\nknow.\nLearn what you\nneed.';
+  static const String onboardingTitle = 'Teach what you know.\nLearn what you need.';
   static const String onboardingSubtitle = 'Exchange skills.';
   static const String onboardingGetStarted = 'Get Started';
 

@@ -10,7 +10,7 @@ import '../../widgets/buttons/primary_button.dart';
 import '../../widgets/inputs/custom_text_fields.dart';
 
 class LoginScreen extends StatefulWidget {
-   const LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -49,29 +49,23 @@ class _LoginScreenState extends State<LoginScreen> {
       _isLoading = true;
     });
 
-    Helpers.showLoadingDialog(
-      context,
-      message: AppStrings.signingIn,
-    );
+    Helpers.showLoadingDialog(context, message: AppStrings.signingIn);
 
     // Simulate API call delay
     await Future.delayed(Duration(seconds: AppStyles.time2));
 
     // Hide loading
-    Helpers.hideLoadingDialog(context);
+    if (mounted) {
+      Helpers.hideLoadingDialog(context);
+    }
 
     setState(() {
       _isLoading = false;
     });
 
     if (mounted) {
-
       // Show success message
-      Helpers.showSnackbar(
-        context,
-        AppStrings.loginSuccess,
-        isSuccess: true,
-      );
+      Helpers.showSnackbar(context, AppStrings.loginSuccess, isSuccess: true);
 
       // Navigate to home
       context.go(AppRoutes.explore);
@@ -94,7 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     // Responsive values
-    final horizontalPadding = isTablet ? screenWidth * AppStyles.size0_2 : AppStyles.size24;
+    final horizontalPadding =
+        isTablet ? screenWidth * AppStyles.size0_2 : AppStyles.size24;
     final logoSize = isTablet ? AppStyles.size100 : AppStyles.size80;
     final spacingMultiplier = isTablet ? AppStyles.size1_5 : AppStyles.size1;
 
@@ -109,7 +104,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   maxWidth: 500, // Maximum width for tablets
-                  minHeight: screenHeight -
+                  minHeight:
+                      screenHeight -
                       MediaQuery.of(context).padding.top -
                       MediaQuery.of(context).padding.bottom,
                 ),
@@ -117,8 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Extra spacing when keyboard is closed
-                    if (!isKeyboardOpen)
-                      SizedBox(height: screenHeight * 0.08),
+                    if (!isKeyboardOpen) SizedBox(height: screenHeight * 0.08),
 
                     // Logo
                     SizedBox(
@@ -204,20 +199,28 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           AppStrings.welcomeToSkillSwap,
-          style: isTablet
-              ? AppStyles.h2.copyWith(
-            color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimary,
-          )
-              : AppStyles.h3.copyWith(
-            color: isDark ? AppColors.textPrimaryDark : AppColors.textPrimary,
-          ),
+          style:
+              isTablet
+                  ? AppStyles.h2.copyWith(
+                    color:
+                        isDark
+                            ? AppColors.textPrimaryDark
+                            : AppColors.textPrimary,
+                  )
+                  : AppStyles.h3.copyWith(
+                    color:
+                        isDark
+                            ? AppColors.textPrimaryDark
+                            : AppColors.textPrimary,
+                  ),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 8),
         Text(
           AppStrings.learnShareGrow,
           style: AppStyles.bodyMedium.copyWith(
-            color: isDark ? AppColors.textSecondaryDark : AppColors.textSecondary,
+            color:
+                isDark ? AppColors.textSecondaryDark : AppColors.textSecondary,
           ),
           textAlign: TextAlign.center,
         ),
@@ -255,7 +258,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-
   Widget _buildButtons(BuildContext context, bool isTablet, bool isDark) {
     return Column(
       children: [
@@ -280,14 +282,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   // Build terms and privacy section
-  Widget _buildTermsAndPrivacy(BuildContext context, bool isTablet, bool isDark) {
+  Widget _buildTermsAndPrivacy(
+    BuildContext context,
+    bool isTablet,
+    bool isDark,
+  ) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: AppStyles.size16),
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
           style: AppStyles.caption.copyWith(
-            color: isDark ? AppColors.textSecondaryDark : AppColors.textSecondary,
+            color:
+                isDark ? AppColors.textSecondaryDark : AppColors.textSecondary,
             fontSize: isTablet ? AppStyles.size13 : AppStyles.size12,
           ),
           children: [
@@ -295,23 +302,31 @@ class _LoginScreenState extends State<LoginScreen> {
             TextSpan(
               text: AppStrings.termsOfService,
               style: TextStyle(
-                color: isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple,
+                color:
+                    isDark
+                        ? AppColors.primaryPurpleLight
+                        : AppColors.primaryPurple,
               ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Helpers.showSnackbar(context, AppStrings.termsOfService);
-                },
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap = () {
+                      Helpers.showSnackbar(context, AppStrings.termsOfService);
+                    },
             ),
             TextSpan(text: AppStrings.and),
             TextSpan(
               text: AppStrings.privacyPolicy,
               style: TextStyle(
-                color: isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple,
+                color:
+                    isDark
+                        ? AppColors.primaryPurpleLight
+                        : AppColors.primaryPurple,
               ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Helpers.showSnackbar(context, AppStrings.privacyPolicy);
-                },
+              recognizer:
+                  TapGestureRecognizer()
+                    ..onTap = () {
+                      Helpers.showSnackbar(context, AppStrings.privacyPolicy);
+                    },
             ),
           ],
         ),
