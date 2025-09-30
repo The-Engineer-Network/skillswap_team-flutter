@@ -19,16 +19,17 @@ class AppColors {
     end: Alignment.bottomRight,
   );
 
-  static const Color darkRose = Color.fromRGBO(109, 82, 89, 1);
-  static const Color deepTeal = Color.fromRGBO(48, 93, 92, 1);
-  static const Color plumPurple1 = Color.fromRGBO(105, 60, 115, 1);
-  static const Color plumPurple2 = Color.fromRGBO(105, 60, 115, 1);
-
   // Neutral colors
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color backgroundWhite = Color(0xFFFAFAFA);
   static const Color surfaceWhite = Color(0xFFF5F5F5);
+  static const Color darkRose = Color(0xFF6D5259); // #6D5259
+  static const Color deepTeal = Color(0xFF305D5C); // #305D5C
+  static const Color plumPurple1 = Color(0xFF693C73); // #693C73
+  static const Color plumPurple2 = Color(
+    0xFF693C73,
+  ); // #693C73 (same as plumPurple1)
 
   // Grays
   static const Color gray900 = Color(0xFF212121);
