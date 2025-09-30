@@ -1,6 +1,7 @@
 // App routes are defined here
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart'; // Used for ChangeNotifierProvider
 import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/signup_screen.dart';
 import '../../screens/explore/explore_screen.dart';
@@ -10,6 +11,7 @@ import '../../screens/profile/edit_profile_screen.dart';
 import '../../screens/sessions/sessions_screen.dart';
 import '../../screens/wallet/wallet_screen.dart';
 import '../../screens/profile/profile_screen.dart';
+import '../../screens/profile/skill_detail.dart';
 
 class AppRoutes {
   // Route paths
@@ -25,7 +27,7 @@ class AppRoutes {
   static const String liveSession = '/session/live/:id';
 
   static final GoRouter router = GoRouter(
-    initialLocation: login,
+    initialLocation: skillDetail,
     debugLogDiagnostics: true,
     // TODO: Add authentication logic when AuthProvider is ready
     // redirect: (BuildContext context, GoRouterState state) {
@@ -40,14 +42,8 @@ class AppRoutes {
         path: onboarding,
         builder: (context, state) => OnboardingScreen(),
       ),
-      GoRoute(
-        path: login,
-        builder: (context, state) => LoginScreen(),
-      ),
-      GoRoute(
-        path: signup,
-        builder: (context, state) => SignupScreen(),
-      ),
+      GoRoute(path: login, builder: (context, state) => LoginScreen()),
+      GoRoute(path: signup, builder: (context, state) => SignupScreen()),
 
       // Main App with Bottom Navigation
       ShellRoute(
@@ -57,31 +53,33 @@ class AppRoutes {
         routes: [
           GoRoute(
             path: explore,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: ExploreScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: ExploreScreen(),
+                ),
           ),
           GoRoute(
             path: sessions,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: SessionsScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: SessionsScreen(),
+                ),
           ),
           GoRoute(
             path: wallet,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: WalletScreen(),
-            ),
+            pageBuilder:
+                (context, state) =>
+                    NoTransitionPage(key: state.pageKey, child: WalletScreen()),
           ),
           GoRoute(
             path: profile,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: ProfileScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: ProfileScreen(),
+                ),
           ),
         ],
       ),
@@ -91,14 +89,17 @@ class AppRoutes {
         path: editProfile,
         builder: (context, state) => EditProfileScreen(),
       ),
-      // TODO: Uncomment when SkillDetailScreen is implemented
-      // GoRoute(
-      //   path: skillDetail,
-      //   builder: (context, state) {
-      //     final skillId = state.pathParameters['id']!;
-      //     return SkillDetailScreen(skillId: skillId);
-      //   },
-      // ),
+      GoRoute(
+        path: skillDetail,
+        builder: (context, state) {
+          final skillId = state.pathParameters['id']!;
+          return ChangeNotifierProvider(
+                create: (_) => SkillDetailProvider(),
+                child: SkillDetailScreen(skillId: skillId),
+              ) ??
+              const SizedBox(); // Added fallback to satisfy analyzer
+        },
+      ),
       // TODO: Uncomment when LiveSessionScreen is implemented
       // GoRoute(
       //   path: liveSession,
@@ -108,22 +109,23 @@ class AppRoutes {
       //   },
       // ),
     ],
-    errorBuilder: (context, state) => Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline, size: 48, color: Colors.red),
-            SizedBox(height: 16),
-            Text('Page not found'),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () => context.go(explore),
-              child: Text('Go to Home'),
+    errorBuilder:
+        (context, state) => Scaffold(
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.error_outline, size: 48, color: Colors.red),
+                SizedBox(height: 16),
+                Text('Page not found'),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () => context.go(explore),
+                  child: Text('Go to Home'),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
-    ),
   );
 }

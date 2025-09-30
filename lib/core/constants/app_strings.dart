@@ -9,7 +9,8 @@ class AppStrings {
   static const String fontFamily = 'Inter';
 
   // ONBOARDING SCREEN
-  static const String onboardingTitle = 'Teach what you\nknow.\nLearn what you\nneed.';
+  static const String onboardingTitle =
+      'Teach what you\nknow.\nLearn what you\nneed.';
   static const String onboardingSubtitle = 'Exchange skills.';
   static const String onboardingGetStarted = 'Get Started';
 
@@ -42,32 +43,33 @@ class AppStrings {
   // EXPLORE SCREEN
   static const String explore = 'Explore';
 
-
   // SESSIONS SCREEN
   static const String sessions = 'Sessions';
 
-
   // WALLET SCREEN
   static const String wallet = 'Wallet';
-
 
   // PROFILE SCREEN
   static const String profile = 'Profile';
 
   // SKILL DETAILS SCREEN
   static const String skillDetails = 'Skill Details';
+  static const String reviews = 'Reviews'; //mitchel added this
 
   // ERROR MESSAGES
   static const String somethingWentWrong = 'Something went wrong';
-  static const String networkError = 'Network error. Please check your connection';
+  static const String networkError =
+      'Network error. Please check your connection';
   static const String serverError = 'Server error. Please try again later';
   static const String sessionExpired = 'Session expired. Please login again';
   static const String unauthorized = 'Unauthorized access';
   static const String notFound = 'Resource not found';
-  static const String connectionTimeout = 'Connection timeout. Please try again';
+  static const String connectionTimeout =
+      'Connection timeout. Please try again';
   static const String noInternet = 'No internet connection';
   static const String errorLoadingData = 'Error loading data';
-  static const String loginFailed = 'Login failed. Please check your credentials';
+  static const String loginFailed =
+      'Login failed. Please check your credentials';
   static const String signupFailed = 'Sign up failed. Please try again';
 
   // SUCCESS MESSAGES
@@ -79,7 +81,8 @@ class AppStrings {
   static const String sessionCompleted = 'Session completed successfully';
   static const String paymentSuccessful = 'Payment successful';
   static const String reviewSubmitted = 'Review submitted successfully';
-  static const String passwordResetSent = 'Password reset link sent to your email';
+  static const String passwordResetSent =
+      'Password reset link sent to your email';
 
   // EMPTY STATES
   static const String noSkillsFound = 'No skills found';
@@ -95,6 +98,8 @@ class AppStrings {
   static const String confirmLogout = 'Are you sure you want to logout?';
   static const String confirmDelete = 'Are you sure you want to delete this?';
   static const String confirmCancel = 'Are you sure you want to cancel?';
-  static const String confirmEndSession = 'Are you sure you want to end this session?';
-  static const String unsavedChanges = 'You have unsaved changes. Do you want to save?';
+  static const String confirmEndSession =
+      'Are you sure you want to end this session?';
+  static const String unsavedChanges =
+      'You have unsaved changes. Do you want to save?';
 }
