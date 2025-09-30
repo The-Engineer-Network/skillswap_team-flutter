@@ -54,6 +54,7 @@ class AppStrings {
 
   // SKILL DETAILS SCREEN
   static const String skillDetails = 'Skill Details';
+  static const String reviews = 'Reviews'; //mitchel added this
 
   // ERROR MESSAGES
   static const String somethingWentWrong = 'Something went wrong';

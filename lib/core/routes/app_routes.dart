@@ -1,6 +1,7 @@
 // App routes are defined here
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart'; // Used for ChangeNotifierProvider
 import '../../screens/auth/login_screen.dart';
 import '../../screens/auth/signup_screen.dart';
 import '../../screens/explore/explore_screen.dart';
@@ -10,6 +11,7 @@ import '../../screens/profile/edit_profile_screen.dart';
 import '../../screens/sessions/sessions_screen.dart';
 import '../../screens/wallet/wallet_screen.dart';
 import '../../screens/profile/profile_screen.dart';
+import '../../screens/profile/skill_detail.dart';
 
 class AppRoutes {
   // Route paths
@@ -87,14 +89,17 @@ class AppRoutes {
         path: editProfile,
         builder: (context, state) => EditProfileScreen(),
       ),
-      // TODO: Uncomment when SkillDetailScreen is implemented
-      // GoRoute(
-      //   path: skillDetail,
-      //   builder: (context, state) {
-      //     final skillId = state.pathParameters['id']!;
-      //     return SkillDetailScreen(skillId: skillId);
-      //   },
-      // ),
+      GoRoute(
+        path: skillDetail,
+        builder: (context, state) {
+          final skillId = state.pathParameters['id']!;
+          return ChangeNotifierProvider(
+                create: (_) => SkillDetailProvider(),
+                child: SkillDetailScreen(skillId: skillId),
+              ) ??
+              const SizedBox(); // Added fallback to satisfy analyzer
+        },
+      ),
       // TODO: Uncomment when LiveSessionScreen is implemented
       // GoRoute(
       //   path: liveSession,
