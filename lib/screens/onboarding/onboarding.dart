@@ -78,7 +78,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                     PrimaryButton(
                       buttonColor: AppColors.primaryPurpleLight,
-                      buttonHeight: 70,
+                      buttonHeight: 65,
                       fontSize: 18,
                       text: AppStrings.onboardingGetStarted,
                       onPressed: _handleContinue,
