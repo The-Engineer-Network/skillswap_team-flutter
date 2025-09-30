@@ -19,6 +19,11 @@ class AppColors {
     end: Alignment.bottomRight,
   );
 
+  static const Color darkRose = Color.fromRGBO(109, 82, 89, 1);
+  static const Color deepTeal = Color.fromRGBO(48, 93, 92, 1);
+  static const Color plumPurple1 = Color.fromRGBO(105, 60, 115, 1);
+  static const Color plumPurple2 = Color.fromRGBO(105, 60, 115, 1);
+
   // Neutral colors
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
@@ -142,8 +147,3 @@ class AppColors {
         : Color(0xFF2C2C2C);
   }
 }
-
-
-
-
-

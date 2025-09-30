@@ -25,7 +25,7 @@ class AppRoutes {
   static const String liveSession = '/session/live/:id';
 
   static final GoRouter router = GoRouter(
-    initialLocation: login,
+    initialLocation: onboarding,
     debugLogDiagnostics: true,
     // TODO: Add authentication logic when AuthProvider is ready
     // redirect: (BuildContext context, GoRouterState state) {
@@ -40,14 +40,8 @@ class AppRoutes {
         path: onboarding,
         builder: (context, state) => OnboardingScreen(),
       ),
-      GoRoute(
-        path: login,
-        builder: (context, state) => LoginScreen(),
-      ),
-      GoRoute(
-        path: signup,
-        builder: (context, state) => SignupScreen(),
-      ),
+      GoRoute(path: login, builder: (context, state) => LoginScreen()),
+      GoRoute(path: signup, builder: (context, state) => SignupScreen()),
 
       // Main App with Bottom Navigation
       ShellRoute(
@@ -57,31 +51,33 @@ class AppRoutes {
         routes: [
           GoRoute(
             path: explore,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: ExploreScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: ExploreScreen(),
+                ),
           ),
           GoRoute(
             path: sessions,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: SessionsScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: SessionsScreen(),
+                ),
           ),
           GoRoute(
             path: wallet,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: WalletScreen(),
-            ),
+            pageBuilder:
+                (context, state) =>
+                    NoTransitionPage(key: state.pageKey, child: WalletScreen()),
           ),
           GoRoute(
             path: profile,
-            pageBuilder: (context, state) => NoTransitionPage(
-              key: state.pageKey,
-              child: ProfileScreen(),
-            ),
+            pageBuilder:
+                (context, state) => NoTransitionPage(
+                  key: state.pageKey,
+                  child: ProfileScreen(),
+                ),
           ),
         ],
       ),
@@ -108,22 +104,23 @@ class AppRoutes {
       //   },
       // ),
     ],
-    errorBuilder: (context, state) => Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.error_outline, size: 48, color: Colors.red),
-            SizedBox(height: 16),
-            Text('Page not found'),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () => context.go(explore),
-              child: Text('Go to Home'),
+    errorBuilder:
+        (context, state) => Scaffold(
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.error_outline, size: 48, color: Colors.red),
+                SizedBox(height: 16),
+                Text('Page not found'),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () => context.go(explore),
+                  child: Text('Go to Home'),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
-      ),
-    ),
   );
 }
