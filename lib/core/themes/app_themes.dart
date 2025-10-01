@@ -36,9 +36,7 @@ class AppThemes {
         fontSize: 18,
         fontWeight: FontWeight.w600,
       ),
-      iconTheme: IconThemeData(
-        color: AppColors.textPrimary,
-      ),
+      iconTheme: IconThemeData(color: AppColors.textPrimary),
     ),
 
     // Card Theme
@@ -46,9 +44,7 @@ class AppThemes {
       color: AppColors.cardBackground,
       elevation: 2,
       shadowColor: AppColors.shadowColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
 
     // Input Decoration Theme
@@ -91,15 +87,10 @@ class AppThemes {
         backgroundColor: AppColors.primaryPurple,
         foregroundColor: AppColors.white,
         disabledBackgroundColor: AppColors.primaryPurple.withAlpha(128),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         elevation: 0,
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 
@@ -107,10 +98,7 @@ class AppThemes {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primaryPurple,
-        textStyle: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
+        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
       ),
     ),
 
@@ -119,14 +107,9 @@ class AppThemes {
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.primaryPurple,
         side: const BorderSide(color: AppColors.primaryPurple, width: 1.5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 
@@ -147,9 +130,7 @@ class AppThemes {
     dialogTheme: DialogThemeData(
       backgroundColor: AppColors.white,
       elevation: 24,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       titleTextStyle: const TextStyle(
         color: AppColors.textPrimary,
         fontSize: 20,
@@ -172,16 +153,11 @@ class AppThemes {
       labelStyle: const TextStyle(color: AppColors.textPrimary),
       secondaryLabelStyle: const TextStyle(color: AppColors.white),
       brightness: Brightness.light,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     ),
 
     // Icon Theme
-    iconTheme: const IconThemeData(
-      color: AppColors.iconDefault,
-      size: 24,
-    ),
+    iconTheme: const IconThemeData(color: AppColors.iconDefault, size: 24),
 
     // Divider Theme
     dividerTheme: const DividerThemeData(
@@ -195,9 +171,7 @@ class AppThemes {
       backgroundColor: AppColors.gray800,
       contentTextStyle: const TextStyle(color: AppColors.white),
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
 
     // Text Theme
@@ -219,7 +193,6 @@ class AppThemes {
       labelSmall: TextStyle(color: AppColors.textSecondary),
     ),
   );
-
 
   // DARK THEME
   static ThemeData darkTheme = ThemeData(
@@ -251,9 +224,7 @@ class AppThemes {
         fontSize: 18,
         fontWeight: FontWeight.w600,
       ),
-      iconTheme: IconThemeData(
-        color: AppColors.textPrimaryDark,
-      ),
+      iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
     ),
 
     // Card Theme
@@ -261,9 +232,7 @@ class AppThemes {
       color: AppColors.cardBackgroundDark,
       elevation: 2,
       shadowColor: Colors.black.withAlpha(77),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     ),
 
     // Input Decoration Theme
@@ -280,7 +249,10 @@ class AppThemes {
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: AppColors.primaryPurpleLight, width: 2),
+        borderSide: const BorderSide(
+          color: AppColors.primaryPurpleLight,
+          width: 2,
+        ),
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -306,15 +278,10 @@ class AppThemes {
         backgroundColor: AppColors.primaryPurpleLight,
         foregroundColor: AppColors.white,
         disabledBackgroundColor: AppColors.primaryPurpleLight.withAlpha(150),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
         elevation: 0,
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 
@@ -322,10 +289,7 @@ class AppThemes {
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: AppColors.primaryPurpleLight,
-        textStyle: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-        ),
+        textStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
       ),
     ),
 
@@ -334,14 +298,9 @@ class AppThemes {
       style: OutlinedButton.styleFrom(
         foregroundColor: AppColors.primaryPurpleLight,
         side: const BorderSide(color: AppColors.primaryPurpleLight, width: 1.5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       ),
     ),
 
@@ -362,9 +321,7 @@ class AppThemes {
     dialogTheme: DialogThemeData(
       backgroundColor: AppColors.surfaceDark,
       elevation: 24,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       titleTextStyle: const TextStyle(
         color: AppColors.textPrimaryDark,
         fontSize: 20,
@@ -387,16 +344,11 @@ class AppThemes {
       labelStyle: const TextStyle(color: AppColors.textPrimaryDark),
       secondaryLabelStyle: const TextStyle(color: AppColors.white),
       brightness: Brightness.dark,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     ),
 
     // Icon Theme
-    iconTheme: const IconThemeData(
-      color: AppColors.gray400,
-      size: 24,
-    ),
+    iconTheme: const IconThemeData(color: AppColors.gray400, size: 24),
 
     // Divider Theme
     dividerTheme: const DividerThemeData(
@@ -410,9 +362,7 @@ class AppThemes {
       backgroundColor: AppColors.gray700,
       contentTextStyle: const TextStyle(color: AppColors.white),
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
 
     // Text Theme
