@@ -176,6 +176,13 @@ class AppStyles {
     );
   }
 
+   static TextStyle getBodySmall(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return bodySmall.copyWith(
+      color: isDark ? AppColors.textSecondaryDark : AppColors.textSecondary,
+    );
+  } //mitchel added this
+
   static TextStyle getCaption(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     return caption.copyWith(
