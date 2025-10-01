@@ -4,10 +4,13 @@ import 'package:skillswap/core/constants/app_strings.dart';
 import '../../core/constants/app_colors.dart';
 
 class PrimaryButton extends StatelessWidget {
-  final String text;           // The text shown on the button
+  final String text; // The text shown on the button
   final VoidCallback? onPressed; // What happens when button is pressed
-  final bool isLoading;        // Show loading spinner?
-  final bool isPrimary;        // True = purple, False = light purple
+  final bool isLoading; // Show loading spinner?
+  final bool isPrimary;
+  final double? buttonHeight; // True = purple, False = light purple
+  final Color? buttonColor;
+  final double? fontSize;
 
   const PrimaryButton({
     super.key,
@@ -15,6 +18,9 @@ class PrimaryButton extends StatelessWidget {
     required this.onPressed,
     this.isLoading = false,
     this.isPrimary = true,
+    this.buttonHeight,
+    this.buttonColor,
+    this.fontSize,
   });
 
   @override
@@ -31,19 +37,23 @@ class PrimaryButton extends StatelessWidget {
 
     if (isPrimary) {
       // Primary button - solid purple
-      backgroundColor = isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple;
+      backgroundColor =
+          isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple;
       textColor = AppColors.white;
     } else {
       // Secondary button - light purple background
-      backgroundColor = isDark
-          ? AppColors.primaryPurple.withAlpha(50)
-          : AppColors.primaryPurpleBackground;
-      textColor = isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple;
+      backgroundColor =
+          buttonColor ??
+          (isDark
+              ? AppColors.primaryPurple.withAlpha(50)
+              : AppColors.primaryPurpleBackground);
+      textColor =
+          isDark ? AppColors.primaryPurpleLight : AppColors.primaryPurple;
     }
 
     return SizedBox(
       width: double.infinity, // Make button full width
-      height: isTablet ? 56 : 50, // Bigger on tablets
+      height: buttonHeight ?? (isTablet ? 56 : 50), // Bigger on tablets
       child: ElevatedButton(
         onPressed: isLoading ? null : onPressed, // Disable when loading
         style: ElevatedButton.styleFrom(
@@ -56,23 +66,24 @@ class PrimaryButton extends StatelessWidget {
           ),
           elevation: 0, // No shadow
         ),
-        child: isLoading
-            ? SizedBox(
-          width: 24,
-          height: 24,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            valueColor: AlwaysStoppedAnimation<Color>(textColor),
-          ),
-        )
-            : Text(
-          text,
-          style: TextStyle(
-            fontSize: isTablet ? 18 : 16,
-            fontWeight: FontWeight.w600,
-            fontFamily: AppStrings.fontFamily
-          ),
-        ),
+        child:
+            isLoading
+                ? SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                  ),
+                )
+                : Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: fontSize ?? (isTablet ? 18 : 16),
+                    fontWeight: FontWeight.w600,
+                    fontFamily: AppStrings.fontFamily,
+                  ),
+                ),
       ),
     );
   }

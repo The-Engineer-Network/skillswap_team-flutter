@@ -27,7 +27,7 @@ class AppRoutes {
   static const String liveSession = '/session/live/:id';
 
   static final GoRouter router = GoRouter(
-    initialLocation: skillDetail,
+    initialLocation: onboarding,
     debugLogDiagnostics: true,
     // TODO: Add authentication logic when AuthProvider is ready
     // redirect: (BuildContext context, GoRouterState state) {

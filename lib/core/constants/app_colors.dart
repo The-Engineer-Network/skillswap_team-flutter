@@ -24,6 +24,12 @@ class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color backgroundWhite = Color(0xFFFAFAFA);
   static const Color surfaceWhite = Color(0xFFF5F5F5);
+  static const Color darkRose = Color(0xFF6D5259); // #6D5259
+  static const Color deepTeal = Color(0xFF305D5C); // #305D5C
+  static const Color plumPurple1 = Color(0xFF693C73); // #693C73
+  static const Color plumPurple2 = Color(
+    0xFF693C73,
+  ); // #693C73 (same as plumPurple1)
 
   // Grays
   static const Color gray900 = Color(0xFF212121);
@@ -142,8 +148,3 @@ class AppColors {
         : Color(0xFF2C2C2C);
   }
 }
-
-
-
-
-
